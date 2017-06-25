@@ -27,5 +27,34 @@ namespace MiningProject
             InitializeComponent();
 
         }
+
+        private void DialogCalc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult == DialogResult.OK)
+            {
+                try
+                {
+                    if (tBNameCalc.Text == "")
+                    {
+                        throw new Exception("Введите название расчета");
+                    }
+                }
+                catch (FormatException)
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Неверный формат ввода");
+                }
+                catch (Exception E)
+                {
+                    e.Cancel = true;
+                    MessageBox.Show(E.Message, "Ошибка");
+                }
+            }
+        }
+
+        private void OK_B_Layer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

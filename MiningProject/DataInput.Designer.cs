@@ -65,31 +65,32 @@
             // 
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.GroupBox1);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(747, 494);
+            this.panel1.Size = new System.Drawing.Size(747, 474);
             this.panel1.TabIndex = 1;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cB_Layer);
             this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.dGVLayers);
+            this.groupBox2.Controls.Add(this.cB_Layer);
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.Del_B_Layer);
             this.groupBox2.Controls.Add(this.Edit_B_Layer);
-            this.groupBox2.Controls.Add(this.dGVLayers);
             this.groupBox2.Controls.Add(this.Add_B_Layer);
             this.groupBox2.Location = new System.Drawing.Point(3, 146);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(740, 316);
+            this.groupBox2.Size = new System.Drawing.Size(740, 324);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Пласты";
             // 
             // cB_Layer
             // 
+            this.cB_Layer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cB_Layer.FormattingEnabled = true;
-            this.cB_Layer.Location = new System.Drawing.Point(90, 12);
+            this.cB_Layer.Location = new System.Drawing.Point(102, 296);
             this.cB_Layer.Name = "cB_Layer";
             this.cB_Layer.Size = new System.Drawing.Size(278, 21);
             this.cB_Layer.TabIndex = 5;
@@ -98,17 +99,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 17);
+            this.label2.Location = new System.Drawing.Point(6, 300);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Выбор пласта";
+            this.label2.Text = "Выбор пласта:";
             // 
             // Del_B_Layer
             // 
-            this.Del_B_Layer.Location = new System.Drawing.Point(572, 11);
+            this.Del_B_Layer.Location = new System.Drawing.Point(544, 295);
             this.Del_B_Layer.Name = "Del_B_Layer";
-            this.Del_B_Layer.Size = new System.Drawing.Size(93, 23);
+            this.Del_B_Layer.Size = new System.Drawing.Size(73, 23);
             this.Del_B_Layer.TabIndex = 2;
             this.Del_B_Layer.Text = "Удалить";
             this.Del_B_Layer.UseVisualStyleBackColor = true;
@@ -116,9 +117,9 @@
             // 
             // Edit_B_Layer
             // 
-            this.Edit_B_Layer.Location = new System.Drawing.Point(473, 11);
+            this.Edit_B_Layer.Location = new System.Drawing.Point(465, 295);
             this.Edit_B_Layer.Name = "Edit_B_Layer";
-            this.Edit_B_Layer.Size = new System.Drawing.Size(93, 23);
+            this.Edit_B_Layer.Size = new System.Drawing.Size(73, 23);
             this.Edit_B_Layer.TabIndex = 1;
             this.Edit_B_Layer.Text = "Изменить";
             this.Edit_B_Layer.UseVisualStyleBackColor = true;
@@ -127,7 +128,7 @@
             // dGVLayers
             // 
             this.dGVLayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVLayers.Location = new System.Drawing.Point(6, 40);
+            this.dGVLayers.Location = new System.Drawing.Point(6, 19);
             this.dGVLayers.Name = "dGVLayers";
             this.dGVLayers.ReadOnly = true;
             this.dGVLayers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -140,9 +141,9 @@
             // 
             // Add_B_Layer
             // 
-            this.Add_B_Layer.Location = new System.Drawing.Point(374, 11);
+            this.Add_B_Layer.Location = new System.Drawing.Point(386, 295);
             this.Add_B_Layer.Name = "Add_B_Layer";
-            this.Add_B_Layer.Size = new System.Drawing.Size(93, 23);
+            this.Add_B_Layer.Size = new System.Drawing.Size(73, 23);
             this.Add_B_Layer.TabIndex = 0;
             this.Add_B_Layer.Text = "Добавить";
             this.Add_B_Layer.UseVisualStyleBackColor = true;
@@ -213,7 +214,7 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.button1.Location = new System.Drawing.Point(668, 468);
+            this.button1.Location = new System.Drawing.Point(659, 295);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -224,7 +225,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 518);
+            this.ClientSize = new System.Drawing.Size(770, 498);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DataInput";

@@ -79,6 +79,7 @@
             this.OK_B_Layer.TabIndex = 4;
             this.OK_B_Layer.Text = "ОК";
             this.OK_B_Layer.UseVisualStyleBackColor = true;
+            this.OK_B_Layer.Click += new System.EventHandler(this.OK_B_Layer_Click);
             // 
             // Cancel_B_Layer
             // 
@@ -104,6 +105,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DialogCalc";
             this.Text = "DialogCalc";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DialogCalc_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

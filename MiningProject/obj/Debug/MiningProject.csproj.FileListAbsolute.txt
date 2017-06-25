@@ -21,3 +21,26 @@ C:\Users\S-Pun\documents\visual studio 2017\Projects\MiningProject\MiningProject
 C:\Users\S-Pun\documents\visual studio 2017\Projects\MiningProject\MiningProject\obj\Debug\MiningProject.CurvCalc.resources
 C:\Users\S-Pun\documents\visual studio 2017\Projects\MiningProject\MiningProject\obj\Debug\MiningProject.DialogCalc.resources
 C:\Users\S-Pun\documents\visual studio 2017\Projects\MiningProject\MiningProject\obj\Debug\MiningProject.DialogLayerCalc.resources
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\MiningProject.exe.config
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\MiningProject.exe
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\MiningProject.pdb
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\EntityFramework.dll
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\System.Data.SQLite.dll
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\EntityFramework.xml
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\System.Data.SQLite.xml
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.csprojResolveAssemblyReference.cache
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.CurvCalc.resources
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.DataInput.resources
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.DialogCalc.resources
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.DialogLayer.resources
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.DialogLayerCalc.resources
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.Main.resources
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.Properties.Resources.resources
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.csproj.GenerateResource.Cache
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.exe
+C:\Users\S-Pun\Source\Repos\MiningProject\MiningProject\obj\Debug\MiningProject.pdb

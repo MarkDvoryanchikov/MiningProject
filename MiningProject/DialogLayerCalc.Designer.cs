@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dGV_Layer = new System.Windows.Forms.DataGridView();
             this.Cancel_B_Layer = new System.Windows.Forms.Button();
@@ -49,21 +50,31 @@
             // 
             // dGV_Layer
             // 
-            this.dGV_Layer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.Format = "N2";
             dataGridViewCellStyle1.NullValue = null;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGV_Layer.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dGV_Layer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dGV_Layer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGV_Layer.DefaultCellStyle = dataGridViewCellStyle2;
             this.dGV_Layer.Location = new System.Drawing.Point(3, 25);
             this.dGV_Layer.Name = "dGV_Layer";
             this.dGV_Layer.Size = new System.Drawing.Size(683, 204);
             this.dGV_Layer.TabIndex = 0;
+            this.dGV_Layer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_Layer_CellContentClick);
             this.dGV_Layer.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dGV_Layer_CellPainting);
             this.dGV_Layer.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_Layer_CellValueChanged);
             this.dGV_Layer.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dGV_Layer_ColumnWidthChanged);

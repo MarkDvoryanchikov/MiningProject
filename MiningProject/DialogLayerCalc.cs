@@ -266,15 +266,15 @@ namespace MiningProject
                 {
                     dGV_Layer[3, i].Value =
                         (
-                            (Convert.ToDouble(dGV_Layer[0, i - 1].Value) * Convert.ToDouble(dGV_Layer[1, i - 1].Value))                                                     
+                            (Convert.ToDouble(dGV_Layer[0, i].Value) * Convert.ToDouble(dGV_Layer[1, i].Value))                                                     
                         + 
-                            (Convert.ToDouble(dGV_Layer[0, i].Value) * Convert.ToDouble(dGV_Layer[1, i].Value)
+                            (Convert.ToDouble(dGV_Layer[2, i-1].Value) * Convert.ToDouble(dGV_Layer[3, i-1].Value)
                             
                             )
                         )
                         /
                         (
-                        Convert.ToDouble(dGV_Layer[0, i - 1].Value) + Convert.ToDouble(dGV_Layer[0, i].Value) 
+                        Convert.ToDouble(dGV_Layer[2, i].Value)
                         );
 
                     dGV_Layer[3, i].Style.BackColor = Color.AliceBlue;
@@ -341,6 +341,11 @@ namespace MiningProject
                 }
             }
             #endregion; 
+        }
+
+        private void dGV_Layer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

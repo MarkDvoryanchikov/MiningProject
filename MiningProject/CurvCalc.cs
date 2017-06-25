@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiningProject.Concrete;
 using MiningProject.Models;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace MiningProject
 {
@@ -123,11 +124,16 @@ namespace MiningProject
             LoadCalcs();
             if (dGVTasks.CurrentCell != null)
             {
+                if (dGVCalcs.CurrentCell != null)
+                    Add_B_Class.Enabled = true;
+                else
+                    Add_B_Class.Enabled = false;
             }
         }
 
         private void LoadCalcs()
         {
+            Add_B_Class.Enabled = true;
             if (dGVTasks.CurrentRow != null)
             {
                 var mytask = dGVTasks.CurrentRow.DataBoundItem as MyTask;
@@ -140,6 +146,17 @@ namespace MiningProject
                 dGVCalcs.Columns[4].HeaderCell.Value = "Участие пластов";
                 dGVCalcs.Columns[3].Width = 150;
                 dGVCalcs.Columns[4].Width = 280;
+                Add_B.Enabled = true;
+            }
+            else
+            {
+                Add_B.Enabled = false;
+                Edit_B.Enabled = false;
+                Del_B.Enabled = false;
+                Add_B_Class.Enabled = false;
+                Edit_B_Class.Enabled = false;
+                Del_B_Class.Enabled = false;
+
             }
             LoadLayersCalc();
         }
@@ -279,6 +296,11 @@ namespace MiningProject
                 dGVLC.DataSource = clss;
                 dGVLCStyle();
                 drawChart(clss);
+                Add_B_Class.Enabled = true;
+            }
+            else
+            {
+                Add_B_Class.Enabled = false;
             }
 
         }
@@ -432,23 +454,111 @@ namespace MiningProject
         private void drawChart()
         {
             chart1.Series[0].Points.Clear();
+            chart1.Series[1].Points.Clear();
+            chart1.Series[2].Points.Clear();
+            chart1.Series[3].Points.Clear();
+            panel2.Visible = true;
         }
 
         private void drawChart(List<LayersCalculation> clss)
         {
+            panel2.Visible = false;
             chart1.Series[0].Points.Clear();
-            var inData = clss;
+            chart1.Series[1].Points.Clear();
+            chart1.Series[2].Points.Clear();
+            chart1.Series[3].Points.Clear();
+            chart1.Series[0].LegendText = "элементарных фракций";
+            chart1.Series[1].LegendText = "всплывших фракций";
+            chart1.Series[2].LegendText = "потонувших фракций";
+            chart1.Series[3].LegendText = "плотности";
 
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+            chart1.ChartAreas[0].AxisX.Maximum = 100;
+            chart1.ChartAreas[0].AxisY.Minimum = 0;
+            chart1.ChartAreas[0].AxisY.Maximum = 100;
+            chart1.ChartAreas[0].AxisX.Interval = 10;
+            chart1.ChartAreas[0].AxisY.Interval = 10;
+            chart1.Series[0].BorderWidth = 2;
+            chart1.Series[1].BorderWidth = 2;
+            chart1.Series[2].BorderWidth = 2;
+            chart1.Series[3].BorderWidth = 2;
+
+
+            var inData = clss;
+            chart1.Series[0].Points.AddXY(3, 0+100);
+            chart1.Series[1].Points.AddXY(3, 0+100);
+
+
+            double miniHelp = 0;
+            double [] ab = { 90, 70, 50, 30, 10};
+            int i = 0;
             foreach (var en in inData)
             {
                 //элементарные фракции
-                chart1.Series[0].Points.AddXY(en.C2, en.C1);
-
+                chart1.Series[0].Points.AddXY(en.C2, -((en.C3-miniHelp)/2+miniHelp)+100);
+                miniHelp = en.C3;
                 //всплывшие фракции
+                chart1.Series[1].Points.AddXY(en.C4, -en.C3+100);
 
                 //потонувшие фракции
+                chart1.Series[2].Points.AddXY(en.C6, -(100 - en.C5) + 100);
 
                 //плотности
+                if (i < 5)
+                {
+                    chart1.Series[3].Points.AddXY(ab[i], -en.C3+100);
+                    i++;
+                }
+            }
+            chart1.Series[2].Points.AddXY(96, -100+100);
+            chart1.Series[0].Points.AddXY(96, -100+100);
+
+
+            for (int j = 0; j < chart1.Series[0].Points.Count; j++)
+            {
+                DataPoint dp = chart1.Series[0].Points[j];
+                dp.ToolTip = string.Format($"Кривая элементарных фракций - \nAd: {dp.XValue} Y: {-dp.YValues[0] + 100}");
+            }
+            for (int j = 0; j < chart1.Series[1].Points.Count; j++)
+            {
+                DataPoint dp = chart1.Series[1].Points[j];
+                dp.ToolTip = string.Format($"Кривая всплывших фракций - \nAd: {dp.XValue} Y: {-dp.YValues[0] + 100}");
+            }
+            for (int j = 0; j < chart1.Series[2].Points.Count; j++)
+            {
+                DataPoint dp = chart1.Series[2].Points[j];
+                dp.ToolTip = string.Format($"Кривая потонувших фракций - \nAd: {dp.XValue} Y: {-dp.YValues[0] + 100}");
+            }
+            for (int j = 0; j < chart1.Series[3].Points.Count; j++)
+            {
+                DataPoint dp = chart1.Series[3].Points[j];
+                dp.ToolTip = string.Format($"Кривая плотности - \nAd: {dp.XValue} Y: {-dp.YValues[0] + 100}");
+            }
+
+        }
+
+
+
+    private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_GetToolTipText(object sender, ToolTipEventArgs e)
+        {
+            switch (e.HitTestResult.ChartElementType)
+            {
+                case ChartElementType.Axis:
+                case ChartElementType.TickMarks:
+                    HitTestResult result = chart1.HitTest(e.X, e.Y, ChartElementType.DataPoint);
+                    if (result.ChartElementType == ChartElementType.DataPoint)
+                    {
+                        e.Text = result.Series.Points[result.PointIndex].ToolTip;
+                    }
+                    break;
+
+                default:
+                    break;
             }
         }
     }

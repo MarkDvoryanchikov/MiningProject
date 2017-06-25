@@ -235,7 +235,7 @@ namespace MiningProject
                     {
                         for (var j = 1; j < 8; j++)
                         {
-                            if (dGV_Layer.Rows[j].Cells[i].Value.ToString() == "")
+                            if (dGV_Layer.Rows[j].Cells[i].Value.ToString() == null)
                                 throw new Exception("Заполните поля непомеченные красным");
                             else if (!double.TryParse(dGV_Layer.Rows[j].Cells[i].Value.ToString(), out x))
                             throw new Exception("Все значения должны быть числами");
@@ -244,6 +244,10 @@ namespace MiningProject
                     if (tBLayerName.Text == "")
                     {
                         throw new Exception("Введите имя пласта");
+                    }
+                    if (Convert.ToDouble(textBox1.Text) != 100)
+                    {
+                        throw new Exception("Сумма элементов первого столбца должна быть равна 100");
                     }
                 }
                 catch (FormatException)
@@ -263,6 +267,12 @@ namespace MiningProject
         {
                 TextBox tb = (TextBox)e.Control;
                 tb.KeyPress += new KeyPressEventHandler(OnlyDigits);
+
+            TextBox tbViewEdit = (TextBox)e.Control;
+            if (tbViewEdit != null)
+            {
+                tbViewEdit.TextChanged += new EventHandler(textChanged);
+            }
         }
 
         private void OnlyDigits(object sender, KeyPressEventArgs e)
@@ -274,6 +284,40 @@ namespace MiningProject
                 { e.Handled = true; }
             }
 
+
+
+        }
+
+        private void textChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double abc = 0;
+                double abd = 0;
+                for (var i = 0; i < 9; i++)
+                {
+                    abc += Convert.ToDouble(dGV_Layer[0, i].Value);
+                    abd += Convert.ToDouble(dGV_Layer[0, i].Value)*Convert.ToDouble(dGV_Layer[1, i].Value);
+                }
+                abd = abd / abc;
+                textBox1.Text = abc.ToString();
+                textBox2.Text = abd.ToString();
+                if (Convert.ToDouble(textBox1.Text) != 100)
+                    textBox1.BackColor = Color.Pink;
+                else
+                    textBox1.BackColor = Color.AliceBlue;
+
+            }
+            catch
+            {
+                textBox1.BackColor = Color.Pink;
+            }
+        }
+
+
+        private void dGV_Layer_KeyUp(object sender, KeyEventArgs e)
+        {
+            textChanged(sender,e);
         }
     }
 }
